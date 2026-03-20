@@ -1,3 +1,35 @@
+# 智能面试平台配置
+
+server:
+  port:8080
+
 spring:
   application:
-    name: interview-guide-app
+    name: interview-study-app
+
+  threads:
+    virtual:
+      enabled: true
+
+  # PostgreSQL数据库配置
+  datasource:
+     url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:interview_guide}
+     username: ${POSTGRES_USER:postgres}
+     password: ${POSTGRES_PASSWORD:123456}
+     driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+        ddl-auto: create #首次启动使用create，表创建成功以后使用update
+    show-sql: true # 是否展示生成的SQL语句
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+    servlet:
+      multipart:
+        enabled: true
+        max-file-size: 50MB # 支持知识库上传最大容量
+        max-request-size: 50MB
+
