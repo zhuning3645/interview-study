@@ -1,6 +1,6 @@
 package interview.study.modules.interview;
 
-import interview.guide.common.result.ApiResponse;
+import interview.study.common.result.ApiResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
